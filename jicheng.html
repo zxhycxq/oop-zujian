@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>jicheng继承</title>
+    <link rel="stylesheet" href="">
+</head>
+<body>
+    <script>
+/*function CreatePerson(name,sex){
+    this.name=name;
+    this.sex=sex;
+}
+CreatePerson.prototype.showName=function(){
+    alert(this.name);
+};
+var p1=new CreatePerson('zhangsan', '难');
+p1.showName();
+*/
+// 属性的继承：调用父类的构造函数  call()
+// 方法 的继承：
+function CreatePerson(name,sex){
+    this.name=name;
+    this.sex=sex;
+}
+CreatePerson.prototype.showName=function(){
+    alert(this.name);
+};
+function CreateStar(name,sex,job){
+    CreatePerson.call(this,name,sex);//this 的指向问题
+    this.job=job;
+}
+var p1=new CreatePerson('zhangsan', '难');
+p1.showName();
+CreateStar.prototype=CreatePerson.prototype;//对象赋值给对象，对象的引用，修改会出现问题会  p1也会有showjob方法
+CreateStar.prototype.showjob=function(){
+
+};
+var p2=new CreatePerson('李斯', '难','zuojia');
+p2.showName();
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
