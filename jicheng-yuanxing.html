@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>原型继承</title>
+    <link rel="stylesheet" href="">
+</head>
+<body>
+    <script>
+var a={
+    name:'小明'
+};
+
+var b=cloneObj(a);
+    b.name='小强';
+// alert(b.name);//小强
+// alert(a.name);//小明
+function cloneObj(obj){
+
+    var F=function(){};
+
+    F.prototype=obj;// 原型继承
+
+    return new F();
+
+}
+
+// 拷贝继承：通用 有无new时候都可以
+// 类式继承: 适合通过new 构造函数的形式
+// 原型继承:无new形式
+
+
+
+
+
+    </script>
+</body>
+</html>
